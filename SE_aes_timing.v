@@ -12445,22 +12445,18 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_1 <= state_0;
     end
-    if (reset) begin // @[PRNG.scala 55:49]
-      state_2 <= 1'h0; // @[PRNG.scala 55:49]
-    end else begin
-      state_2 <= state_1;
-    end
+    state_2 <= reset | state_1; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_3 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
       state_3 <= state_2;
     end
+    state_4 <= reset | state_3; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
-      state_4 <= 1'h0; // @[PRNG.scala 55:49]
+      state_5 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
-      state_4 <= state_3;
+      state_5 <= state_4;
     end
-    state_5 <= reset | state_4; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_6 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
@@ -12478,16 +12474,8 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_10 <= state_9;
     end
-    if (reset) begin // @[PRNG.scala 55:49]
-      state_11 <= 1'h0; // @[PRNG.scala 55:49]
-    end else begin
-      state_11 <= state_10;
-    end
-    if (reset) begin // @[PRNG.scala 55:49]
-      state_12 <= 1'h0; // @[PRNG.scala 55:49]
-    end else begin
-      state_12 <= state_11;
-    end
+    state_11 <= reset | state_10; // @[PRNG.scala 55:{49,49}]
+    state_12 <= reset | state_11; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_13 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
@@ -12503,7 +12491,11 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_15 <= state_14;
     end
-    state_16 <= reset | state_15; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_16 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_16 <= state_15;
+    end
     state_17 <= reset | state_16; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_18 <= 1'h0; // @[PRNG.scala 55:49]
@@ -12515,13 +12507,13 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_19 <= state_18;
     end
-    if (reset) begin // @[PRNG.scala 55:49]
-      state_20 <= 1'h0; // @[PRNG.scala 55:49]
-    end else begin
-      state_20 <= state_19;
-    end
+    state_20 <= reset | state_19; // @[PRNG.scala 55:{49,49}]
     state_21 <= reset | state_20; // @[PRNG.scala 55:{49,49}]
-    state_22 <= reset | state_21; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_22 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_22 <= state_21;
+    end
     if (reset) begin // @[PRNG.scala 55:49]
       state_23 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
@@ -12532,19 +12524,15 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_24 <= state_23;
     end
-    if (reset) begin // @[PRNG.scala 55:49]
-      state_25 <= 1'h0; // @[PRNG.scala 55:49]
-    end else begin
-      state_25 <= state_24;
-    end
+    state_25 <= reset | state_24; // @[PRNG.scala 55:{49,49}]
     state_26 <= reset | state_25; // @[PRNG.scala 55:{49,49}]
-    if (reset) begin // @[PRNG.scala 55:49]
-      state_27 <= 1'h0; // @[PRNG.scala 55:49]
-    end else begin
-      state_27 <= state_26;
-    end
+    state_27 <= reset | state_26; // @[PRNG.scala 55:{49,49}]
     state_28 <= reset | state_27; // @[PRNG.scala 55:{49,49}]
-    state_29 <= reset | state_28; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_29 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_29 <= state_28;
+    end
     state_30 <= reset | state_29; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_31 <= 1'h0; // @[PRNG.scala 55:49]
@@ -12557,14 +12545,22 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_33 <= state_32;
     end
-    state_34 <= reset | state_33; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_34 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_34 <= state_33;
+    end
     if (reset) begin // @[PRNG.scala 55:49]
       state_35 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
       state_35 <= state_34;
     end
     state_36 <= reset | state_35; // @[PRNG.scala 55:{49,49}]
-    state_37 <= reset | state_36; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_37 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_37 <= state_36;
+    end
     state_38 <= reset | state_37; // @[PRNG.scala 55:{49,49}]
     state_39 <= reset | state_38; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
@@ -12578,7 +12574,11 @@ module MaxPeriodFibonacciLFSR(
       state_41 <= state_40;
     end
     state_42 <= reset | state_41; // @[PRNG.scala 55:{49,49}]
-    state_43 <= reset | state_42; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_43 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_43 <= state_42;
+    end
     state_44 <= reset | state_43; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_45 <= 1'h0; // @[PRNG.scala 55:49]
@@ -12591,13 +12591,21 @@ module MaxPeriodFibonacciLFSR(
       state_46 <= state_45;
     end
     state_47 <= reset | state_46; // @[PRNG.scala 55:{49,49}]
-    state_48 <= reset | state_47; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_48 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_48 <= state_47;
+    end
     if (reset) begin // @[PRNG.scala 55:49]
       state_49 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
       state_49 <= state_48;
     end
-    state_50 <= reset | state_49; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_50 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_50 <= state_49;
+    end
     state_51 <= reset | state_50; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_52 <= 1'h0; // @[PRNG.scala 55:49]
@@ -12605,7 +12613,11 @@ module MaxPeriodFibonacciLFSR(
       state_52 <= state_51;
     end
     state_53 <= reset | state_52; // @[PRNG.scala 55:{49,49}]
-    state_54 <= reset | state_53; // @[PRNG.scala 55:{49,49}]
+    if (reset) begin // @[PRNG.scala 55:49]
+      state_54 <= 1'h0; // @[PRNG.scala 55:49]
+    end else begin
+      state_54 <= state_53;
+    end
     if (reset) begin // @[PRNG.scala 55:49]
       state_55 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
@@ -12626,12 +12638,12 @@ module MaxPeriodFibonacciLFSR(
     end else begin
       state_58 <= state_57;
     end
+    state_59 <= reset | state_58; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
-      state_59 <= 1'h0; // @[PRNG.scala 55:49]
+      state_60 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
-      state_59 <= state_58;
+      state_60 <= state_59;
     end
-    state_60 <= reset | state_59; // @[PRNG.scala 55:{49,49}]
     if (reset) begin // @[PRNG.scala 55:49]
       state_61 <= 1'h0; // @[PRNG.scala 55:49]
     end else begin
@@ -12833,84 +12845,19 @@ module SE(
 `ifdef RANDOMIZE_REG_INIT
   reg [31:0] _RAND_0;
   reg [31:0] _RAND_1;
-  reg [127:0] _RAND_2;
-  reg [127:0] _RAND_3;
+  reg [31:0] _RAND_2;
+  reg [31:0] _RAND_3;
   reg [127:0] _RAND_4;
   reg [127:0] _RAND_5;
   reg [127:0] _RAND_6;
-  reg [127:0] _RAND_7;
-  reg [127:0] _RAND_8;
-  reg [127:0] _RAND_9;
+  reg [31:0] _RAND_7;
+  reg [31:0] _RAND_8;
+  reg [31:0] _RAND_9;
   reg [127:0] _RAND_10;
-  reg [127:0] _RAND_11;
+  reg [31:0] _RAND_11;
   reg [127:0] _RAND_12;
   reg [127:0] _RAND_13;
-  reg [127:0] _RAND_14;
-  reg [127:0] _RAND_15;
-  reg [127:0] _RAND_16;
-  reg [127:0] _RAND_17;
-  reg [127:0] _RAND_18;
-  reg [127:0] _RAND_19;
-  reg [127:0] _RAND_20;
-  reg [127:0] _RAND_21;
-  reg [127:0] _RAND_22;
-  reg [127:0] _RAND_23;
-  reg [127:0] _RAND_24;
-  reg [127:0] _RAND_25;
-  reg [127:0] _RAND_26;
-  reg [127:0] _RAND_27;
-  reg [127:0] _RAND_28;
-  reg [127:0] _RAND_29;
-  reg [127:0] _RAND_30;
-  reg [127:0] _RAND_31;
-  reg [127:0] _RAND_32;
-  reg [127:0] _RAND_33;
-  reg [63:0] _RAND_34;
-  reg [63:0] _RAND_35;
-  reg [63:0] _RAND_36;
-  reg [63:0] _RAND_37;
-  reg [63:0] _RAND_38;
-  reg [63:0] _RAND_39;
-  reg [63:0] _RAND_40;
-  reg [63:0] _RAND_41;
-  reg [63:0] _RAND_42;
-  reg [63:0] _RAND_43;
-  reg [63:0] _RAND_44;
-  reg [63:0] _RAND_45;
-  reg [63:0] _RAND_46;
-  reg [63:0] _RAND_47;
-  reg [63:0] _RAND_48;
-  reg [63:0] _RAND_49;
-  reg [63:0] _RAND_50;
-  reg [63:0] _RAND_51;
-  reg [63:0] _RAND_52;
-  reg [63:0] _RAND_53;
-  reg [63:0] _RAND_54;
-  reg [63:0] _RAND_55;
-  reg [63:0] _RAND_56;
-  reg [63:0] _RAND_57;
-  reg [63:0] _RAND_58;
-  reg [63:0] _RAND_59;
-  reg [63:0] _RAND_60;
-  reg [63:0] _RAND_61;
-  reg [63:0] _RAND_62;
-  reg [63:0] _RAND_63;
-  reg [63:0] _RAND_64;
-  reg [63:0] _RAND_65;
-  reg [31:0] _RAND_66;
-  reg [31:0] _RAND_67;
-  reg [127:0] _RAND_68;
-  reg [127:0] _RAND_69;
-  reg [127:0] _RAND_70;
-  reg [31:0] _RAND_71;
-  reg [31:0] _RAND_72;
-  reg [31:0] _RAND_73;
-  reg [127:0] _RAND_74;
-  reg [31:0] _RAND_75;
-  reg [127:0] _RAND_76;
-  reg [63:0] _RAND_77;
-  reg [127:0] _RAND_78;
-  reg [31:0] _RAND_79;
+  reg [31:0] _RAND_14;
 `endif // RANDOMIZE_REG_INIT
   wire [7:0] seoperation_io_inst; // @[SE.scala 61:33]
   wire [63:0] seoperation_io_op1_input; // @[SE.scala 61:33]
@@ -13127,70 +13074,6 @@ module SE(
   wire  _T_1 = io_out_valid & io_out_ready; // @[SE.scala 50:33]
   wire  _GEN_2 = io_out_valid & io_out_ready ? 1'h0 : counterOn; // @[SE.scala 50:49 51:27 42:32]
   wire  _GEN_3 = io_in_valid & io_in_ready | _GEN_2; // @[SE.scala 48:41 49:27]
-  reg [127:0] ciphers_0; // @[SE.scala 66:26]
-  reg [127:0] ciphers_1; // @[SE.scala 66:26]
-  reg [127:0] ciphers_2; // @[SE.scala 66:26]
-  reg [127:0] ciphers_3; // @[SE.scala 66:26]
-  reg [127:0] ciphers_4; // @[SE.scala 66:26]
-  reg [127:0] ciphers_5; // @[SE.scala 66:26]
-  reg [127:0] ciphers_6; // @[SE.scala 66:26]
-  reg [127:0] ciphers_7; // @[SE.scala 66:26]
-  reg [127:0] ciphers_8; // @[SE.scala 66:26]
-  reg [127:0] ciphers_9; // @[SE.scala 66:26]
-  reg [127:0] ciphers_10; // @[SE.scala 66:26]
-  reg [127:0] ciphers_11; // @[SE.scala 66:26]
-  reg [127:0] ciphers_12; // @[SE.scala 66:26]
-  reg [127:0] ciphers_13; // @[SE.scala 66:26]
-  reg [127:0] ciphers_14; // @[SE.scala 66:26]
-  reg [127:0] ciphers_15; // @[SE.scala 66:26]
-  reg [127:0] ciphers_16; // @[SE.scala 66:26]
-  reg [127:0] ciphers_17; // @[SE.scala 66:26]
-  reg [127:0] ciphers_18; // @[SE.scala 66:26]
-  reg [127:0] ciphers_19; // @[SE.scala 66:26]
-  reg [127:0] ciphers_20; // @[SE.scala 66:26]
-  reg [127:0] ciphers_21; // @[SE.scala 66:26]
-  reg [127:0] ciphers_22; // @[SE.scala 66:26]
-  reg [127:0] ciphers_23; // @[SE.scala 66:26]
-  reg [127:0] ciphers_24; // @[SE.scala 66:26]
-  reg [127:0] ciphers_25; // @[SE.scala 66:26]
-  reg [127:0] ciphers_26; // @[SE.scala 66:26]
-  reg [127:0] ciphers_27; // @[SE.scala 66:26]
-  reg [127:0] ciphers_28; // @[SE.scala 66:26]
-  reg [127:0] ciphers_29; // @[SE.scala 66:26]
-  reg [127:0] ciphers_30; // @[SE.scala 66:26]
-  reg [127:0] ciphers_31; // @[SE.scala 66:26]
-  reg [63:0] plaintexts_0; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_1; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_2; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_3; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_4; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_5; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_6; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_7; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_8; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_9; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_10; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_11; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_12; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_13; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_14; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_15; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_16; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_17; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_18; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_19; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_20; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_21; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_22; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_23; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_24; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_25; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_26; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_27; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_28; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_29; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_30; // @[SE.scala 67:29]
-  reg [63:0] plaintexts_31; // @[SE.scala 67:29]
   reg [7:0] ptr; // @[SE.scala 68:26]
   reg [7:0] inst_buffer; // @[Reg.scala 16:16]
   reg [127:0] op1_buffer; // @[Reg.scala 16:16]
@@ -13198,233 +13081,13 @@ module SE(
   reg [127:0] cond_buffer; // @[Reg.scala 16:16]
   reg  valid_buffer; // @[SE.scala 103:31]
   reg  ready_for_input; // @[SE.scala 106:38]
-  wire  _op1_found_T = ciphers_0 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_1 = ciphers_1 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_2 = ciphers_2 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_3 = ciphers_3 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_4 = ciphers_4 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_5 = ciphers_5 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_6 = ciphers_6 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_7 = ciphers_7 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_8 = ciphers_8 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_9 = ciphers_9 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_10 = ciphers_10 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_11 = ciphers_11 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_12 = ciphers_12 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_13 = ciphers_13 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_14 = ciphers_14 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_15 = ciphers_15 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_47 = ciphers_0 == op1_buffer | ciphers_1 == op1_buffer | ciphers_2 == op1_buffer | ciphers_3 ==
-    op1_buffer | ciphers_4 == op1_buffer | ciphers_5 == op1_buffer | ciphers_6 == op1_buffer | ciphers_7 == op1_buffer
-     | ciphers_8 == op1_buffer | ciphers_9 == op1_buffer | ciphers_10 == op1_buffer | ciphers_11 == op1_buffer |
-    ciphers_12 == op1_buffer | ciphers_13 == op1_buffer | ciphers_14 == op1_buffer | _op1_found_T_15; // @[SE.scala 137:41]
-  wire  _op1_found_T_16 = ciphers_16 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_17 = ciphers_17 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_18 = ciphers_18 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_19 = ciphers_19 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_20 = ciphers_20 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_21 = ciphers_21 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_22 = ciphers_22 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_23 = ciphers_23 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_24 = ciphers_24 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_25 = ciphers_25 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_26 = ciphers_26 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_27 = ciphers_27 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_28 = ciphers_28 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_29 = ciphers_29 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_30 = ciphers_30 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op1_found_T_62 = _op1_found_T_47 | ciphers_16 == op1_buffer | ciphers_17 == op1_buffer | ciphers_18 ==
-    op1_buffer | ciphers_19 == op1_buffer | ciphers_20 == op1_buffer | ciphers_21 == op1_buffer | ciphers_22 ==
-    op1_buffer | ciphers_23 == op1_buffer | ciphers_24 == op1_buffer | ciphers_25 == op1_buffer | ciphers_26 ==
-    op1_buffer | ciphers_27 == op1_buffer | ciphers_28 == op1_buffer | ciphers_29 == op1_buffer | ciphers_30 ==
-    op1_buffer; // @[SE.scala 137:41]
-  wire  op1_found = _op1_found_T_62 | ciphers_31 == op1_buffer; // @[SE.scala 137:41]
-  wire  _op2_found_T = ciphers_0 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_1 = ciphers_1 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_2 = ciphers_2 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_3 = ciphers_3 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_4 = ciphers_4 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_5 = ciphers_5 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_6 = ciphers_6 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_7 = ciphers_7 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_8 = ciphers_8 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_9 = ciphers_9 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_10 = ciphers_10 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_11 = ciphers_11 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_12 = ciphers_12 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_13 = ciphers_13 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_14 = ciphers_14 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_15 = ciphers_15 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_47 = ciphers_0 == op2_buffer | ciphers_1 == op2_buffer | ciphers_2 == op2_buffer | ciphers_3 ==
-    op2_buffer | ciphers_4 == op2_buffer | ciphers_5 == op2_buffer | ciphers_6 == op2_buffer | ciphers_7 == op2_buffer
-     | ciphers_8 == op2_buffer | ciphers_9 == op2_buffer | ciphers_10 == op2_buffer | ciphers_11 == op2_buffer |
-    ciphers_12 == op2_buffer | ciphers_13 == op2_buffer | ciphers_14 == op2_buffer | _op2_found_T_15; // @[SE.scala 138:41]
-  wire  _op2_found_T_16 = ciphers_16 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_17 = ciphers_17 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_18 = ciphers_18 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_19 = ciphers_19 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_20 = ciphers_20 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_21 = ciphers_21 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_22 = ciphers_22 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_23 = ciphers_23 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_24 = ciphers_24 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_25 = ciphers_25 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_26 = ciphers_26 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_27 = ciphers_27 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_28 = ciphers_28 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_29 = ciphers_29 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_30 = ciphers_30 == op2_buffer; // @[SE.scala 138:41]
-  wire  _op2_found_T_62 = _op2_found_T_47 | ciphers_16 == op2_buffer | ciphers_17 == op2_buffer | ciphers_18 ==
-    op2_buffer | ciphers_19 == op2_buffer | ciphers_20 == op2_buffer | ciphers_21 == op2_buffer | ciphers_22 ==
-    op2_buffer | ciphers_23 == op2_buffer | ciphers_24 == op2_buffer | ciphers_25 == op2_buffer | ciphers_26 ==
-    op2_buffer | ciphers_27 == op2_buffer | ciphers_28 == op2_buffer | ciphers_29 == op2_buffer | ciphers_30 ==
-    op2_buffer; // @[SE.scala 138:41]
-  wire  op2_found = _op2_found_T_62 | ciphers_31 == op2_buffer; // @[SE.scala 138:41]
-  wire [7:0] _T_6 = inst_buffer & 8'he0; // @[SE.scala 140:26]
-  wire  _cond_found_T = ciphers_0 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_1 = ciphers_1 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_2 = ciphers_2 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_3 = ciphers_3 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_4 = ciphers_4 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_5 = ciphers_5 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_6 = ciphers_6 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_7 = ciphers_7 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_8 = ciphers_8 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_9 = ciphers_9 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_10 = ciphers_10 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_11 = ciphers_11 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_12 = ciphers_12 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_13 = ciphers_13 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_14 = ciphers_14 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_15 = ciphers_15 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_47 = ciphers_0 == cond_buffer | ciphers_1 == cond_buffer | ciphers_2 == cond_buffer | ciphers_3
-     == cond_buffer | ciphers_4 == cond_buffer | ciphers_5 == cond_buffer | ciphers_6 == cond_buffer | ciphers_7 ==
-    cond_buffer | ciphers_8 == cond_buffer | ciphers_9 == cond_buffer | ciphers_10 == cond_buffer | ciphers_11 ==
-    cond_buffer | ciphers_12 == cond_buffer | ciphers_13 == cond_buffer | ciphers_14 == cond_buffer | _cond_found_T_15; // @[SE.scala 141:47]
-  wire  _cond_found_T_16 = ciphers_16 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_17 = ciphers_17 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_18 = ciphers_18 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_19 = ciphers_19 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_20 = ciphers_20 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_21 = ciphers_21 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_22 = ciphers_22 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_23 = ciphers_23 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_24 = ciphers_24 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_25 = ciphers_25 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_26 = ciphers_26 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_27 = ciphers_27 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_28 = ciphers_28 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_29 = ciphers_29 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_30 = ciphers_30 == cond_buffer; // @[SE.scala 141:47]
-  wire  _cond_found_T_62 = _cond_found_T_47 | ciphers_16 == cond_buffer | ciphers_17 == cond_buffer | ciphers_18 ==
-    cond_buffer | ciphers_19 == cond_buffer | ciphers_20 == cond_buffer | ciphers_21 == cond_buffer | ciphers_22 ==
-    cond_buffer | ciphers_23 == cond_buffer | ciphers_24 == cond_buffer | ciphers_25 == cond_buffer | ciphers_26 ==
-    cond_buffer | ciphers_27 == cond_buffer | ciphers_28 == cond_buffer | ciphers_29 == cond_buffer | ciphers_30 ==
-    cond_buffer; // @[SE.scala 141:47]
-  wire  cond_found = 8'h60 == _T_6 ? _cond_found_T_62 | ciphers_31 == cond_buffer : 1'h1; // @[SE.scala 140:48 141:28 143:28]
-  wire  all_match = op1_found & op2_found & cond_found; // @[SE.scala 149:48]
-  wire  n_stage_valid = all_match | valid_buffer; // @[SE.scala 161:36]
-  wire  _valid_buffer_T_1 = n_stage_valid ? 1'h0 : valid_buffer; // @[SE.scala 110:68]
+  wire  _valid_buffer_T_1 = valid_buffer ? 1'h0 : valid_buffer; // @[SE.scala 110:68]
   wire  _GEN_185 = _T_1 | ready_for_input; // @[SE.scala 113:49 114:33 106:38]
   wire  _GEN_186 = _T ? 1'h0 : _GEN_185; // @[SE.scala 111:41 112:33]
-  wire [4:0] _op1_val_T_32 = _op1_found_T_30 ? 5'h1e : 5'h1f; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_33 = _op1_found_T_29 ? 5'h1d : _op1_val_T_32; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_34 = _op1_found_T_28 ? 5'h1c : _op1_val_T_33; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_35 = _op1_found_T_27 ? 5'h1b : _op1_val_T_34; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_36 = _op1_found_T_26 ? 5'h1a : _op1_val_T_35; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_37 = _op1_found_T_25 ? 5'h19 : _op1_val_T_36; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_38 = _op1_found_T_24 ? 5'h18 : _op1_val_T_37; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_39 = _op1_found_T_23 ? 5'h17 : _op1_val_T_38; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_40 = _op1_found_T_22 ? 5'h16 : _op1_val_T_39; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_41 = _op1_found_T_21 ? 5'h15 : _op1_val_T_40; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_42 = _op1_found_T_20 ? 5'h14 : _op1_val_T_41; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_43 = _op1_found_T_19 ? 5'h13 : _op1_val_T_42; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_44 = _op1_found_T_18 ? 5'h12 : _op1_val_T_43; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_45 = _op1_found_T_17 ? 5'h11 : _op1_val_T_44; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_46 = _op1_found_T_16 ? 5'h10 : _op1_val_T_45; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_47 = _op1_found_T_15 ? 5'hf : _op1_val_T_46; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_48 = _op1_found_T_14 ? 5'he : _op1_val_T_47; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_49 = _op1_found_T_13 ? 5'hd : _op1_val_T_48; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_50 = _op1_found_T_12 ? 5'hc : _op1_val_T_49; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_51 = _op1_found_T_11 ? 5'hb : _op1_val_T_50; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_52 = _op1_found_T_10 ? 5'ha : _op1_val_T_51; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_53 = _op1_found_T_9 ? 5'h9 : _op1_val_T_52; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_54 = _op1_found_T_8 ? 5'h8 : _op1_val_T_53; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_55 = _op1_found_T_7 ? 5'h7 : _op1_val_T_54; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_56 = _op1_found_T_6 ? 5'h6 : _op1_val_T_55; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_57 = _op1_found_T_5 ? 5'h5 : _op1_val_T_56; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_58 = _op1_found_T_4 ? 5'h4 : _op1_val_T_57; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_59 = _op1_found_T_3 ? 5'h3 : _op1_val_T_58; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_60 = _op1_found_T_2 ? 5'h2 : _op1_val_T_59; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_61 = _op1_found_T_1 ? 5'h1 : _op1_val_T_60; // @[SE.scala 145:52]
-  wire [4:0] _op1_val_T_62 = _op1_found_T ? 5'h0 : _op1_val_T_61; // @[SE.scala 145:52]
-  wire [4:0] _op2_val_T_32 = _op2_found_T_30 ? 5'h1e : 5'h1f; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_33 = _op2_found_T_29 ? 5'h1d : _op2_val_T_32; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_34 = _op2_found_T_28 ? 5'h1c : _op2_val_T_33; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_35 = _op2_found_T_27 ? 5'h1b : _op2_val_T_34; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_36 = _op2_found_T_26 ? 5'h1a : _op2_val_T_35; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_37 = _op2_found_T_25 ? 5'h19 : _op2_val_T_36; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_38 = _op2_found_T_24 ? 5'h18 : _op2_val_T_37; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_39 = _op2_found_T_23 ? 5'h17 : _op2_val_T_38; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_40 = _op2_found_T_22 ? 5'h16 : _op2_val_T_39; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_41 = _op2_found_T_21 ? 5'h15 : _op2_val_T_40; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_42 = _op2_found_T_20 ? 5'h14 : _op2_val_T_41; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_43 = _op2_found_T_19 ? 5'h13 : _op2_val_T_42; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_44 = _op2_found_T_18 ? 5'h12 : _op2_val_T_43; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_45 = _op2_found_T_17 ? 5'h11 : _op2_val_T_44; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_46 = _op2_found_T_16 ? 5'h10 : _op2_val_T_45; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_47 = _op2_found_T_15 ? 5'hf : _op2_val_T_46; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_48 = _op2_found_T_14 ? 5'he : _op2_val_T_47; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_49 = _op2_found_T_13 ? 5'hd : _op2_val_T_48; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_50 = _op2_found_T_12 ? 5'hc : _op2_val_T_49; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_51 = _op2_found_T_11 ? 5'hb : _op2_val_T_50; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_52 = _op2_found_T_10 ? 5'ha : _op2_val_T_51; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_53 = _op2_found_T_9 ? 5'h9 : _op2_val_T_52; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_54 = _op2_found_T_8 ? 5'h8 : _op2_val_T_53; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_55 = _op2_found_T_7 ? 5'h7 : _op2_val_T_54; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_56 = _op2_found_T_6 ? 5'h6 : _op2_val_T_55; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_57 = _op2_found_T_5 ? 5'h5 : _op2_val_T_56; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_58 = _op2_found_T_4 ? 5'h4 : _op2_val_T_57; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_59 = _op2_found_T_3 ? 5'h3 : _op2_val_T_58; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_60 = _op2_found_T_2 ? 5'h2 : _op2_val_T_59; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_61 = _op2_found_T_1 ? 5'h1 : _op2_val_T_60; // @[SE.scala 146:52]
-  wire [4:0] _op2_val_T_62 = _op2_found_T ? 5'h0 : _op2_val_T_61; // @[SE.scala 146:52]
-  wire [4:0] _cond_val_T_32 = _cond_found_T_30 ? 5'h1e : 5'h1f; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_33 = _cond_found_T_29 ? 5'h1d : _cond_val_T_32; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_34 = _cond_found_T_28 ? 5'h1c : _cond_val_T_33; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_35 = _cond_found_T_27 ? 5'h1b : _cond_val_T_34; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_36 = _cond_found_T_26 ? 5'h1a : _cond_val_T_35; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_37 = _cond_found_T_25 ? 5'h19 : _cond_val_T_36; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_38 = _cond_found_T_24 ? 5'h18 : _cond_val_T_37; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_39 = _cond_found_T_23 ? 5'h17 : _cond_val_T_38; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_40 = _cond_found_T_22 ? 5'h16 : _cond_val_T_39; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_41 = _cond_found_T_21 ? 5'h15 : _cond_val_T_40; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_42 = _cond_found_T_20 ? 5'h14 : _cond_val_T_41; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_43 = _cond_found_T_19 ? 5'h13 : _cond_val_T_42; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_44 = _cond_found_T_18 ? 5'h12 : _cond_val_T_43; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_45 = _cond_found_T_17 ? 5'h11 : _cond_val_T_44; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_46 = _cond_found_T_16 ? 5'h10 : _cond_val_T_45; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_47 = _cond_found_T_15 ? 5'hf : _cond_val_T_46; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_48 = _cond_found_T_14 ? 5'he : _cond_val_T_47; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_49 = _cond_found_T_13 ? 5'hd : _cond_val_T_48; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_50 = _cond_found_T_12 ? 5'hc : _cond_val_T_49; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_51 = _cond_found_T_11 ? 5'hb : _cond_val_T_50; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_52 = _cond_found_T_10 ? 5'ha : _cond_val_T_51; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_53 = _cond_found_T_9 ? 5'h9 : _cond_val_T_52; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_54 = _cond_found_T_8 ? 5'h8 : _cond_val_T_53; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_55 = _cond_found_T_7 ? 5'h7 : _cond_val_T_54; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_56 = _cond_found_T_6 ? 5'h6 : _cond_val_T_55; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_57 = _cond_found_T_5 ? 5'h5 : _cond_val_T_56; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_58 = _cond_found_T_4 ? 5'h4 : _cond_val_T_57; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_59 = _cond_found_T_3 ? 5'h3 : _cond_val_T_58; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_60 = _cond_found_T_2 ? 5'h2 : _cond_val_T_59; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_61 = _cond_found_T_1 ? 5'h1 : _cond_val_T_60; // @[SE.scala 147:53]
-  wire [4:0] _cond_val_T_62 = _cond_found_T ? 5'h0 : _cond_val_T_61; // @[SE.scala 147:53]
   wire  _T_57 = ~reset; // @[SE.scala 158:23]
   reg [7:0] mid_inst_buffer; // @[Reg.scala 16:16]
   reg [127:0] mid_op1_buffer; // @[Reg.scala 16:16]
-  wire  _seoperation_io_inst_T = all_match & valid_buffer; // @[SE.scala 177:45]
-  wire  seOpValid = aes_invcipher_io_output_valid | _seoperation_io_inst_T; // @[SE.scala 178:55]
+  wire  seOpValid = aes_invcipher_io_output_valid; // @[SE.scala 178:55]
   wire [7:0] op1_reverse_1 = aes_invcipher_io_output_op1_14; // @[SE.scala 164:31 168:32]
   wire [7:0] op1_reverse_0 = aes_invcipher_io_output_op1_15; // @[SE.scala 164:31 168:32]
   wire [7:0] op1_reverse_3 = aes_invcipher_io_output_op1_12; // @[SE.scala 164:31 168:32]
@@ -13485,101 +13148,6 @@ module SE(
   wire [7:0] cond_reverse_14 = aes_invcipher_io_output_cond_1; // @[SE.scala 166:32 170:33]
   wire [127:0] cond_asUInt = {cond_reverse_15,cond_reverse_14,cond_reverse_13,cond_reverse_12,cond_reverse_11,
     cond_reverse_10,cond_reverse_9,cond_reverse_8,cond_asUInt_lo}; // @[SE.scala 182:40]
-  wire [63:0] _seoperation_io_op1_input_T_5 = mid_inst_buffer[7:5] == 3'h5 ? mid_op1_buffer[127:64] : op1_asUInt[127:64]
-    ; // @[SE.scala 202:79]
-  wire [63:0] _GEN_191 = 5'h1 == _op1_val_T_62 ? plaintexts_1 : plaintexts_0; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_192 = 5'h2 == _op1_val_T_62 ? plaintexts_2 : _GEN_191; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_193 = 5'h3 == _op1_val_T_62 ? plaintexts_3 : _GEN_192; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_194 = 5'h4 == _op1_val_T_62 ? plaintexts_4 : _GEN_193; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_195 = 5'h5 == _op1_val_T_62 ? plaintexts_5 : _GEN_194; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_196 = 5'h6 == _op1_val_T_62 ? plaintexts_6 : _GEN_195; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_197 = 5'h7 == _op1_val_T_62 ? plaintexts_7 : _GEN_196; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_198 = 5'h8 == _op1_val_T_62 ? plaintexts_8 : _GEN_197; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_199 = 5'h9 == _op1_val_T_62 ? plaintexts_9 : _GEN_198; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_200 = 5'ha == _op1_val_T_62 ? plaintexts_10 : _GEN_199; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_201 = 5'hb == _op1_val_T_62 ? plaintexts_11 : _GEN_200; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_202 = 5'hc == _op1_val_T_62 ? plaintexts_12 : _GEN_201; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_203 = 5'hd == _op1_val_T_62 ? plaintexts_13 : _GEN_202; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_204 = 5'he == _op1_val_T_62 ? plaintexts_14 : _GEN_203; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_205 = 5'hf == _op1_val_T_62 ? plaintexts_15 : _GEN_204; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_206 = 5'h10 == _op1_val_T_62 ? plaintexts_16 : _GEN_205; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_207 = 5'h11 == _op1_val_T_62 ? plaintexts_17 : _GEN_206; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_208 = 5'h12 == _op1_val_T_62 ? plaintexts_18 : _GEN_207; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_209 = 5'h13 == _op1_val_T_62 ? plaintexts_19 : _GEN_208; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_210 = 5'h14 == _op1_val_T_62 ? plaintexts_20 : _GEN_209; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_211 = 5'h15 == _op1_val_T_62 ? plaintexts_21 : _GEN_210; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_212 = 5'h16 == _op1_val_T_62 ? plaintexts_22 : _GEN_211; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_213 = 5'h17 == _op1_val_T_62 ? plaintexts_23 : _GEN_212; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_214 = 5'h18 == _op1_val_T_62 ? plaintexts_24 : _GEN_213; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_215 = 5'h19 == _op1_val_T_62 ? plaintexts_25 : _GEN_214; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_216 = 5'h1a == _op1_val_T_62 ? plaintexts_26 : _GEN_215; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_217 = 5'h1b == _op1_val_T_62 ? plaintexts_27 : _GEN_216; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_218 = 5'h1c == _op1_val_T_62 ? plaintexts_28 : _GEN_217; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_219 = 5'h1d == _op1_val_T_62 ? plaintexts_29 : _GEN_218; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_220 = 5'h1e == _op1_val_T_62 ? plaintexts_30 : _GEN_219; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_221 = 5'h1f == _op1_val_T_62 ? plaintexts_31 : _GEN_220; // @[SE.scala 202:{40,40}]
-  wire [63:0] _GEN_223 = 5'h1 == _op2_val_T_62 ? plaintexts_1 : plaintexts_0; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_224 = 5'h2 == _op2_val_T_62 ? plaintexts_2 : _GEN_223; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_225 = 5'h3 == _op2_val_T_62 ? plaintexts_3 : _GEN_224; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_226 = 5'h4 == _op2_val_T_62 ? plaintexts_4 : _GEN_225; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_227 = 5'h5 == _op2_val_T_62 ? plaintexts_5 : _GEN_226; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_228 = 5'h6 == _op2_val_T_62 ? plaintexts_6 : _GEN_227; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_229 = 5'h7 == _op2_val_T_62 ? plaintexts_7 : _GEN_228; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_230 = 5'h8 == _op2_val_T_62 ? plaintexts_8 : _GEN_229; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_231 = 5'h9 == _op2_val_T_62 ? plaintexts_9 : _GEN_230; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_232 = 5'ha == _op2_val_T_62 ? plaintexts_10 : _GEN_231; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_233 = 5'hb == _op2_val_T_62 ? plaintexts_11 : _GEN_232; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_234 = 5'hc == _op2_val_T_62 ? plaintexts_12 : _GEN_233; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_235 = 5'hd == _op2_val_T_62 ? plaintexts_13 : _GEN_234; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_236 = 5'he == _op2_val_T_62 ? plaintexts_14 : _GEN_235; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_237 = 5'hf == _op2_val_T_62 ? plaintexts_15 : _GEN_236; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_238 = 5'h10 == _op2_val_T_62 ? plaintexts_16 : _GEN_237; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_239 = 5'h11 == _op2_val_T_62 ? plaintexts_17 : _GEN_238; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_240 = 5'h12 == _op2_val_T_62 ? plaintexts_18 : _GEN_239; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_241 = 5'h13 == _op2_val_T_62 ? plaintexts_19 : _GEN_240; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_242 = 5'h14 == _op2_val_T_62 ? plaintexts_20 : _GEN_241; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_243 = 5'h15 == _op2_val_T_62 ? plaintexts_21 : _GEN_242; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_244 = 5'h16 == _op2_val_T_62 ? plaintexts_22 : _GEN_243; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_245 = 5'h17 == _op2_val_T_62 ? plaintexts_23 : _GEN_244; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_246 = 5'h18 == _op2_val_T_62 ? plaintexts_24 : _GEN_245; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_247 = 5'h19 == _op2_val_T_62 ? plaintexts_25 : _GEN_246; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_248 = 5'h1a == _op2_val_T_62 ? plaintexts_26 : _GEN_247; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_249 = 5'h1b == _op2_val_T_62 ? plaintexts_27 : _GEN_248; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_250 = 5'h1c == _op2_val_T_62 ? plaintexts_28 : _GEN_249; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_251 = 5'h1d == _op2_val_T_62 ? plaintexts_29 : _GEN_250; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_252 = 5'h1e == _op2_val_T_62 ? plaintexts_30 : _GEN_251; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_253 = 5'h1f == _op2_val_T_62 ? plaintexts_31 : _GEN_252; // @[SE.scala 203:{40,40}]
-  wire [63:0] _GEN_255 = 5'h1 == _cond_val_T_62 ? plaintexts_1 : plaintexts_0; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_256 = 5'h2 == _cond_val_T_62 ? plaintexts_2 : _GEN_255; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_257 = 5'h3 == _cond_val_T_62 ? plaintexts_3 : _GEN_256; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_258 = 5'h4 == _cond_val_T_62 ? plaintexts_4 : _GEN_257; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_259 = 5'h5 == _cond_val_T_62 ? plaintexts_5 : _GEN_258; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_260 = 5'h6 == _cond_val_T_62 ? plaintexts_6 : _GEN_259; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_261 = 5'h7 == _cond_val_T_62 ? plaintexts_7 : _GEN_260; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_262 = 5'h8 == _cond_val_T_62 ? plaintexts_8 : _GEN_261; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_263 = 5'h9 == _cond_val_T_62 ? plaintexts_9 : _GEN_262; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_264 = 5'ha == _cond_val_T_62 ? plaintexts_10 : _GEN_263; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_265 = 5'hb == _cond_val_T_62 ? plaintexts_11 : _GEN_264; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_266 = 5'hc == _cond_val_T_62 ? plaintexts_12 : _GEN_265; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_267 = 5'hd == _cond_val_T_62 ? plaintexts_13 : _GEN_266; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_268 = 5'he == _cond_val_T_62 ? plaintexts_14 : _GEN_267; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_269 = 5'hf == _cond_val_T_62 ? plaintexts_15 : _GEN_268; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_270 = 5'h10 == _cond_val_T_62 ? plaintexts_16 : _GEN_269; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_271 = 5'h11 == _cond_val_T_62 ? plaintexts_17 : _GEN_270; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_272 = 5'h12 == _cond_val_T_62 ? plaintexts_18 : _GEN_271; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_273 = 5'h13 == _cond_val_T_62 ? plaintexts_19 : _GEN_272; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_274 = 5'h14 == _cond_val_T_62 ? plaintexts_20 : _GEN_273; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_275 = 5'h15 == _cond_val_T_62 ? plaintexts_21 : _GEN_274; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_276 = 5'h16 == _cond_val_T_62 ? plaintexts_22 : _GEN_275; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_277 = 5'h17 == _cond_val_T_62 ? plaintexts_23 : _GEN_276; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_278 = 5'h18 == _cond_val_T_62 ? plaintexts_24 : _GEN_277; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_279 = 5'h19 == _cond_val_T_62 ? plaintexts_25 : _GEN_278; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_280 = 5'h1a == _cond_val_T_62 ? plaintexts_26 : _GEN_279; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_281 = 5'h1b == _cond_val_T_62 ? plaintexts_27 : _GEN_280; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_282 = 5'h1c == _cond_val_T_62 ? plaintexts_28 : _GEN_281; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_283 = 5'h1d == _cond_val_T_62 ? plaintexts_29 : _GEN_282; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_284 = 5'h1e == _cond_val_T_62 ? plaintexts_30 : _GEN_283; // @[SE.scala 204:{41,41}]
-  wire [63:0] _GEN_285 = 5'h1f == _cond_val_T_62 ? plaintexts_31 : _GEN_284; // @[SE.scala 204:{41,41}]
   reg  result_valid_buffer; // @[SE.scala 207:42]
   wire  _n_result_valid_buffer_T = aes_cipher_io_input_valid ? 1'h0 : result_valid_buffer; // @[SE.scala 208:60]
   wire [7:0] bit64_randnum_lo_lo_lo = {bit64_randnum_prng_io_out_7,bit64_randnum_prng_io_out_6,
@@ -13608,7 +13176,6 @@ module SE(
     ,bit64_randnum_prng_io_out_56,bit64_randnum_hi_hi_lo,bit64_randnum_hi_lo}; // @[PRNG.scala 95:17]
   wire [127:0] padded_result = {seoperation_io_result,bit64_randnum_hi,bit64_randnum_lo}; // @[Cat.scala 31:58]
   reg [127:0] result_buffer; // @[Reg.scala 16:16]
-  reg [63:0] result_plaintext_buffer; // @[SE.scala 221:46]
   wire [63:0] output_buffer_lo = {aes_cipher_io_output_text_7,aes_cipher_io_output_text_6,aes_cipher_io_output_text_5,
     aes_cipher_io_output_text_4,aes_cipher_io_output_text_3,aes_cipher_io_output_text_2,aes_cipher_io_output_text_1,
     aes_cipher_io_output_text_0}; // @[SE.scala 236:65]
@@ -13839,13 +13406,13 @@ module SE(
   assign io_out_result = output_buffer; // @[SE.scala 245:23]
   assign io_out_valid = output_valid; // @[SE.scala 244:22]
   assign io_out_cntr = {{1'd0}, value}; // @[SE.scala 56:21]
-  assign seoperation_io_inst = all_match & valid_buffer ? inst_buffer : mid_inst_buffer; // @[SE.scala 177:35]
-  assign seoperation_io_op1_input = _seoperation_io_inst_T ? _GEN_221 : _seoperation_io_op1_input_T_5; // @[SE.scala 202:40]
-  assign seoperation_io_op2_input = _seoperation_io_inst_T ? _GEN_253 : op2_asUInt[127:64]; // @[SE.scala 203:40]
-  assign seoperation_io_cond_input = _seoperation_io_inst_T ? _GEN_285 : cond_asUInt[127:64]; // @[SE.scala 204:41]
+  assign seoperation_io_inst = mid_inst_buffer; // @[SE.scala 177:35]
+  assign seoperation_io_op1_input = mid_inst_buffer[7:5] == 3'h5 ? mid_op1_buffer[127:64] : op1_asUInt[127:64]; // @[SE.scala 202:79]
+  assign seoperation_io_op2_input = op2_asUInt[127:64]; // @[SE.scala 203:86]
+  assign seoperation_io_cond_input = cond_asUInt[127:64]; // @[SE.scala 204:89]
   assign aes_invcipher_clock = clock;
   assign aes_invcipher_reset = reset;
-  assign aes_invcipher_io_input_valid = valid_buffer & ~all_match; // @[SE.scala 156:54]
+  assign aes_invcipher_io_input_valid = valid_buffer; // @[SE.scala 156:54]
   assign aes_invcipher_io_input_op1_0 = op1_buffer[7:0]; // @[SE.scala 152:58]
   assign aes_invcipher_io_input_op1_1 = op1_buffer[15:8]; // @[SE.scala 152:58]
   assign aes_invcipher_io_input_op1_2 = op1_buffer[23:16]; // @[SE.scala 152:58]
@@ -13932,454 +13499,6 @@ module SE(
         value <= _value_T_1; // @[Counter.scala 78:15]
       end
     end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_0 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h0 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_0 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_1 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_1 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_2 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h2 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_2 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_3 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h3 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_3 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_4 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h4 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_4 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_5 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h5 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_5 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_6 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h6 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_6 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_7 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h7 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_7 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_8 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h8 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_8 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_9 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h9 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_9 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_10 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'ha == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_10 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_11 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hb == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_11 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_12 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hc == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_12 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_13 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hd == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_13 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_14 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'he == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_14 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_15 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hf == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_15 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_16 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h10 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_16 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_17 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h11 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_17 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_18 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h12 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_18 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_19 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h13 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_19 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_20 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h14 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_20 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_21 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h15 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_21 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_22 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h16 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_22 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_23 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h17 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_23 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_24 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h18 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_24 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_25 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h19 == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_25 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_26 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1a == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_26 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_27 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1b == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_27 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_28 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1c == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_28 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_29 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1d == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_29 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_30 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1e == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_30 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      ciphers_31 <= 128'h0; // @[SE.scala 258:36]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1f == ptr[4:0]) begin // @[SE.scala 263:38]
-        ciphers_31 <= output_buffer; // @[SE.scala 263:38]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_0 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h0 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_0 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_1 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_1 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_2 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h2 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_2 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_3 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h3 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_3 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_4 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h4 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_4 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_5 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h5 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_5 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_6 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h6 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_6 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_7 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h7 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_7 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_8 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h8 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_8 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_9 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h9 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_9 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_10 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'ha == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_10 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_11 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hb == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_11 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_12 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hc == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_12 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_13 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hd == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_13 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_14 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'he == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_14 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_15 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'hf == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_15 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_16 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h10 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_16 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_17 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h11 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_17 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_18 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h12 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_18 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_19 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h13 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_19 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_20 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h14 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_20 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_21 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h15 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_21 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_22 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h16 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_22 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_23 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h17 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_23 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_24 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h18 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_24 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_25 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h19 == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_25 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_26 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1a == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_26 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_27 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1b == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_27 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_28 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1c == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_28 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_29 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1d == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_29 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_30 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1e == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_30 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
-    if (reset) begin // @[SE.scala 255:27]
-      plaintexts_31 <= 64'h0; // @[SE.scala 259:39]
-    end else if (io_out_valid) begin // @[SE.scala 262:36]
-      if (5'h1f == ptr[4:0]) begin // @[SE.scala 264:41]
-        plaintexts_31 <= result_plaintext_buffer; // @[SE.scala 264:41]
-      end
-    end
     if (reset) begin // @[SE.scala 68:26]
       ptr <= 8'h0; // @[SE.scala 68:26]
     end else if (output_valid) begin // @[SE.scala 247:27]
@@ -14412,11 +13531,6 @@ module SE(
     result_valid_buffer <= seOpValid | _n_result_valid_buffer_T; // @[SE.scala 208:37]
     if (seOpValid) begin // @[Reg.scala 17:18]
       result_buffer <= padded_result; // @[Reg.scala 17:22]
-    end
-    if (reset) begin // @[SE.scala 221:46]
-      result_plaintext_buffer <= 64'h0; // @[SE.scala 221:46]
-    end else if (seOpValid) begin // @[SE.scala 222:24]
-      result_plaintext_buffer <= seoperation_io_result; // @[SE.scala 223:41]
     end
     if (aes_cipher_io_output_valid) begin // @[Reg.scala 17:18]
       output_buffer <= _output_buffer_T; // @[Reg.scala 17:22]
@@ -14500,162 +13614,32 @@ initial begin
   counterOn = _RAND_0[0:0];
   _RAND_1 = {1{`RANDOM}};
   value = _RAND_1[6:0];
-  _RAND_2 = {4{`RANDOM}};
-  ciphers_0 = _RAND_2[127:0];
-  _RAND_3 = {4{`RANDOM}};
-  ciphers_1 = _RAND_3[127:0];
+  _RAND_2 = {1{`RANDOM}};
+  ptr = _RAND_2[7:0];
+  _RAND_3 = {1{`RANDOM}};
+  inst_buffer = _RAND_3[7:0];
   _RAND_4 = {4{`RANDOM}};
-  ciphers_2 = _RAND_4[127:0];
+  op1_buffer = _RAND_4[127:0];
   _RAND_5 = {4{`RANDOM}};
-  ciphers_3 = _RAND_5[127:0];
+  op2_buffer = _RAND_5[127:0];
   _RAND_6 = {4{`RANDOM}};
-  ciphers_4 = _RAND_6[127:0];
-  _RAND_7 = {4{`RANDOM}};
-  ciphers_5 = _RAND_7[127:0];
-  _RAND_8 = {4{`RANDOM}};
-  ciphers_6 = _RAND_8[127:0];
-  _RAND_9 = {4{`RANDOM}};
-  ciphers_7 = _RAND_9[127:0];
+  cond_buffer = _RAND_6[127:0];
+  _RAND_7 = {1{`RANDOM}};
+  valid_buffer = _RAND_7[0:0];
+  _RAND_8 = {1{`RANDOM}};
+  ready_for_input = _RAND_8[0:0];
+  _RAND_9 = {1{`RANDOM}};
+  mid_inst_buffer = _RAND_9[7:0];
   _RAND_10 = {4{`RANDOM}};
-  ciphers_8 = _RAND_10[127:0];
-  _RAND_11 = {4{`RANDOM}};
-  ciphers_9 = _RAND_11[127:0];
+  mid_op1_buffer = _RAND_10[127:0];
+  _RAND_11 = {1{`RANDOM}};
+  result_valid_buffer = _RAND_11[0:0];
   _RAND_12 = {4{`RANDOM}};
-  ciphers_10 = _RAND_12[127:0];
+  result_buffer = _RAND_12[127:0];
   _RAND_13 = {4{`RANDOM}};
-  ciphers_11 = _RAND_13[127:0];
-  _RAND_14 = {4{`RANDOM}};
-  ciphers_12 = _RAND_14[127:0];
-  _RAND_15 = {4{`RANDOM}};
-  ciphers_13 = _RAND_15[127:0];
-  _RAND_16 = {4{`RANDOM}};
-  ciphers_14 = _RAND_16[127:0];
-  _RAND_17 = {4{`RANDOM}};
-  ciphers_15 = _RAND_17[127:0];
-  _RAND_18 = {4{`RANDOM}};
-  ciphers_16 = _RAND_18[127:0];
-  _RAND_19 = {4{`RANDOM}};
-  ciphers_17 = _RAND_19[127:0];
-  _RAND_20 = {4{`RANDOM}};
-  ciphers_18 = _RAND_20[127:0];
-  _RAND_21 = {4{`RANDOM}};
-  ciphers_19 = _RAND_21[127:0];
-  _RAND_22 = {4{`RANDOM}};
-  ciphers_20 = _RAND_22[127:0];
-  _RAND_23 = {4{`RANDOM}};
-  ciphers_21 = _RAND_23[127:0];
-  _RAND_24 = {4{`RANDOM}};
-  ciphers_22 = _RAND_24[127:0];
-  _RAND_25 = {4{`RANDOM}};
-  ciphers_23 = _RAND_25[127:0];
-  _RAND_26 = {4{`RANDOM}};
-  ciphers_24 = _RAND_26[127:0];
-  _RAND_27 = {4{`RANDOM}};
-  ciphers_25 = _RAND_27[127:0];
-  _RAND_28 = {4{`RANDOM}};
-  ciphers_26 = _RAND_28[127:0];
-  _RAND_29 = {4{`RANDOM}};
-  ciphers_27 = _RAND_29[127:0];
-  _RAND_30 = {4{`RANDOM}};
-  ciphers_28 = _RAND_30[127:0];
-  _RAND_31 = {4{`RANDOM}};
-  ciphers_29 = _RAND_31[127:0];
-  _RAND_32 = {4{`RANDOM}};
-  ciphers_30 = _RAND_32[127:0];
-  _RAND_33 = {4{`RANDOM}};
-  ciphers_31 = _RAND_33[127:0];
-  _RAND_34 = {2{`RANDOM}};
-  plaintexts_0 = _RAND_34[63:0];
-  _RAND_35 = {2{`RANDOM}};
-  plaintexts_1 = _RAND_35[63:0];
-  _RAND_36 = {2{`RANDOM}};
-  plaintexts_2 = _RAND_36[63:0];
-  _RAND_37 = {2{`RANDOM}};
-  plaintexts_3 = _RAND_37[63:0];
-  _RAND_38 = {2{`RANDOM}};
-  plaintexts_4 = _RAND_38[63:0];
-  _RAND_39 = {2{`RANDOM}};
-  plaintexts_5 = _RAND_39[63:0];
-  _RAND_40 = {2{`RANDOM}};
-  plaintexts_6 = _RAND_40[63:0];
-  _RAND_41 = {2{`RANDOM}};
-  plaintexts_7 = _RAND_41[63:0];
-  _RAND_42 = {2{`RANDOM}};
-  plaintexts_8 = _RAND_42[63:0];
-  _RAND_43 = {2{`RANDOM}};
-  plaintexts_9 = _RAND_43[63:0];
-  _RAND_44 = {2{`RANDOM}};
-  plaintexts_10 = _RAND_44[63:0];
-  _RAND_45 = {2{`RANDOM}};
-  plaintexts_11 = _RAND_45[63:0];
-  _RAND_46 = {2{`RANDOM}};
-  plaintexts_12 = _RAND_46[63:0];
-  _RAND_47 = {2{`RANDOM}};
-  plaintexts_13 = _RAND_47[63:0];
-  _RAND_48 = {2{`RANDOM}};
-  plaintexts_14 = _RAND_48[63:0];
-  _RAND_49 = {2{`RANDOM}};
-  plaintexts_15 = _RAND_49[63:0];
-  _RAND_50 = {2{`RANDOM}};
-  plaintexts_16 = _RAND_50[63:0];
-  _RAND_51 = {2{`RANDOM}};
-  plaintexts_17 = _RAND_51[63:0];
-  _RAND_52 = {2{`RANDOM}};
-  plaintexts_18 = _RAND_52[63:0];
-  _RAND_53 = {2{`RANDOM}};
-  plaintexts_19 = _RAND_53[63:0];
-  _RAND_54 = {2{`RANDOM}};
-  plaintexts_20 = _RAND_54[63:0];
-  _RAND_55 = {2{`RANDOM}};
-  plaintexts_21 = _RAND_55[63:0];
-  _RAND_56 = {2{`RANDOM}};
-  plaintexts_22 = _RAND_56[63:0];
-  _RAND_57 = {2{`RANDOM}};
-  plaintexts_23 = _RAND_57[63:0];
-  _RAND_58 = {2{`RANDOM}};
-  plaintexts_24 = _RAND_58[63:0];
-  _RAND_59 = {2{`RANDOM}};
-  plaintexts_25 = _RAND_59[63:0];
-  _RAND_60 = {2{`RANDOM}};
-  plaintexts_26 = _RAND_60[63:0];
-  _RAND_61 = {2{`RANDOM}};
-  plaintexts_27 = _RAND_61[63:0];
-  _RAND_62 = {2{`RANDOM}};
-  plaintexts_28 = _RAND_62[63:0];
-  _RAND_63 = {2{`RANDOM}};
-  plaintexts_29 = _RAND_63[63:0];
-  _RAND_64 = {2{`RANDOM}};
-  plaintexts_30 = _RAND_64[63:0];
-  _RAND_65 = {2{`RANDOM}};
-  plaintexts_31 = _RAND_65[63:0];
-  _RAND_66 = {1{`RANDOM}};
-  ptr = _RAND_66[7:0];
-  _RAND_67 = {1{`RANDOM}};
-  inst_buffer = _RAND_67[7:0];
-  _RAND_68 = {4{`RANDOM}};
-  op1_buffer = _RAND_68[127:0];
-  _RAND_69 = {4{`RANDOM}};
-  op2_buffer = _RAND_69[127:0];
-  _RAND_70 = {4{`RANDOM}};
-  cond_buffer = _RAND_70[127:0];
-  _RAND_71 = {1{`RANDOM}};
-  valid_buffer = _RAND_71[0:0];
-  _RAND_72 = {1{`RANDOM}};
-  ready_for_input = _RAND_72[0:0];
-  _RAND_73 = {1{`RANDOM}};
-  mid_inst_buffer = _RAND_73[7:0];
-  _RAND_74 = {4{`RANDOM}};
-  mid_op1_buffer = _RAND_74[127:0];
-  _RAND_75 = {1{`RANDOM}};
-  result_valid_buffer = _RAND_75[0:0];
-  _RAND_76 = {4{`RANDOM}};
-  result_buffer = _RAND_76[127:0];
-  _RAND_77 = {2{`RANDOM}};
-  result_plaintext_buffer = _RAND_77[63:0];
-  _RAND_78 = {4{`RANDOM}};
-  output_buffer = _RAND_78[127:0];
-  _RAND_79 = {1{`RANDOM}};
-  output_valid = _RAND_79[0:0];
+  output_buffer = _RAND_13[127:0];
+  _RAND_14 = {1{`RANDOM}};
+  output_valid = _RAND_14[0:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
